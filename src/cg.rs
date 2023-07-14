@@ -1,6 +1,6 @@
 use crate::{Rect, SoftBufferError};
 use core_graphics::base::{
-    kCGBitmapByteOrder32Little, kCGImageAlphaNoneSkipFirst, kCGRenderingIntentDefault,
+    kCGBitmapByteOrder32Little, kCGRenderingIntentDefault, kCGImageAlphaFirst,
 };
 use core_graphics::color_space::CGColorSpace;
 use core_graphics::data_provider::CGDataProvider;
@@ -105,7 +105,7 @@ impl<'a> BufferImpl<'a> {
             32,
             (self.imp.width * 4) as usize,
             &self.imp.color_space,
-            kCGBitmapByteOrder32Little | kCGImageAlphaNoneSkipFirst,
+            kCGBitmapByteOrder32Little | kCGImageAlphaFirst,
             &data_provider,
             false,
             kCGRenderingIntentDefault,
